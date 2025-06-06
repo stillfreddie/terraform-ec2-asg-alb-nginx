@@ -1,3 +1,13 @@
+terraform { 
+  cloud { 
+    
+    organization = "Terraform_CloudORG" 
+
+    workspaces { 
+      name = "terraform-ec2-asg-alb-nginx" 
+    } 
+  } 
+}
 
 provider "aws" {
   region = var.aws_region
@@ -5,7 +15,7 @@ provider "aws" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = var.key_name
-  public_key = file(var.public_key_path)
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaaIhUMyjAf1gBmTZdwMNyIA6v1SdTDZ0dBjD/uJr7N+5XTt8jlGZgakmQNzgbSWbsHSms31QDNFp7dqvO/W/h+wGa8KyxbaxJbvscfYoD2k5KUJ5Zd3no30iNhiqWQAwyMNmrcjU4eRL88k0uCLH683uQjU1nsQW8B3+3zWMDFIhle+LiaKBhmuFpgDqjbMICh3/r16jwNBPN9JuRdbNECQGLM6+xbKG4RUQ4f+ZpS6DM67im/WbqeXXfvteORk8Cao/I6V3dN1BclNW6uwmu1BaUQRFSFw7p/obmi3wt1sEI70HubSA6yHIwmkFy1M0gEygBhQ97wyFyDs/bPCO1"
 }
 
 resource "aws_security_group" "web_sg" {
