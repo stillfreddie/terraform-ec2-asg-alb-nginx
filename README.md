@@ -18,7 +18,7 @@ This project showcases how to provision a scalable web infrastructure on AWS usi
 
 ## Usage
 
-Update the `variables.tf` file with your key pair and AMI details. Then run:
+Update the `terraform.tfvars` file with your key pair and AMI details. Then run:
 
 ```bash
 terraform init
